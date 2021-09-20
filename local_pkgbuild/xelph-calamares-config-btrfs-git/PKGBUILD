@@ -1,0 +1,24 @@
+# Maintainer: Erik Dubois <erik.dubois@gmail.com>
+pkgname=xelph-calamares-config-btrfs-git
+_destname1="/etc"
+pkgver=r9.9f359cc
+pkgrel=1
+pkgdesc="calamares for XelphLinux"
+arch=('any')
+url="https://github.com/xelphlinux/"
+license=('GPL3')
+makedepends=('git')
+depends=()
+conflicts=()
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=(${pkgname}::"git+${url}/${pkgname}")
+sha256sums=('SKIP')
+package() {
+	install -dm755 ${pkgdir}${_destname1}
+	cp -r ${srcdir}/${pkgname}${_destname1}/* ${pkgdir}${_destname1}
+}
+pkgver() {
+  cd "$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}

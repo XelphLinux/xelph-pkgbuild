@@ -1,0 +1,35 @@
+# Maintainer: Aakash Sharma <aakashsensharma@gmail.com>
+pkgname=nord-dmenu-git
+pkgver=r1.85e20b8
+pkgrel=1
+pkgdesc="Nord themed dmenu for XelphOS"
+arch=('x86_64')
+url="https://github.com/xelphlinux/nord-dmenu-git"
+license=('MIT')
+makedepends=('git')
+provides=("${pkgname%}")
+conflicts=("${pkgname%}")
+source=('nord-dmenu-git::git://github.com/xelphlinux/nord-dmenu-git.git')
+noextract=()
+md5sums=('SKIP')
+
+pkgver() {
+  cd "$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build(){
+  cd "$pkgname"
+  make
+}
+
+package(){
+  cd "$pkgname"
+  install -Dm755 "./dmenu" "$pkgdir/usr/bin/dmenu"
+  install -Dm755 "./dmenu_path" "$pkgdir/usr/bin/dmenu_path"
+  install -Dm755 "./dmenu_run" "$pkgdir/usr/bin/dmenu_run"
+  install -Dm755 "./stest" "$pkgdir/usr/bin/stest"
+  install -Dm755 "./stest" "$pkgdir/usr/bin/stest"
+  install -Dm644 "./dmenu.1" "$pkgdir/usr/share/man/man1/dmenu.1"
+  install -Dm644 "./stest.1" "$pkgdir/usr/share/man/man1/stest.1"
+}
