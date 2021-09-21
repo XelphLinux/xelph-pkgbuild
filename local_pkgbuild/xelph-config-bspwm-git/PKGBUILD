@@ -13,6 +13,7 @@ provides=("${pkgname}")
 options=(!strip !emptydirs)
 source=(${_pkgname}::"git+https://github.com/xelphlinux/${_pkgname}.git")
 sha256sums=('SKIP')
+install='post.install'
 
 package() {
 	install -dm755 ${pkgdir}${_destname1}
