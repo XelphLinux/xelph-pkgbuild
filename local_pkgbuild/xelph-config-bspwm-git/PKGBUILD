@@ -1,0 +1,28 @@
+# Maintainer: Aakash Sharma <aakashsensharma@gmail.com>
+pkgname=xelph-config-bspwm-git
+_pkgname=xelph-config-bspwm-git
+_destname1="/etc/skel/"
+pkgver=r3.2bb3321
+pkgrel=1
+pkgdesc="BSPWM config files for Xelph Linux."
+arch=('x86_64')
+url="https://github.com/xelphlinux/xelph-config-bspwm-git"
+license=('MIT')
+makedepends=('git')
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=(${_pkgname}::"git+https://github.com/xelphlinux/${_pkgname}.git")
+sha256sums=('SKIP')
+
+package() {
+	install -dm755 ${pkgdir}${_destname1}
+	echo "NOTE: ONLY DOTFILES WILL BE ADDED."
+	cp -lr ${srcdir}/${_pkgname}${_destname1}.* ${pkgdir}${_destname1}
+	rm -rf ${pkgdir}${_destname1}/"skel"
+    # fixing a issue that i don't know how to solve in cp ^^^^^^^^^^^^^^^^^^^^^^^^^^
+}
+
+pkgver() {
+  cd "$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}

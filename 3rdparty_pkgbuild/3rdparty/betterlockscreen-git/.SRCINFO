@@ -1,0 +1,19 @@
+pkgbase = betterlockscreen-git
+	pkgdesc = A simple lock script for i3lock-color
+	pkgver = r172.9e43994
+	pkgrel = 1
+	url = https://github.com/pavanjadhaw/betterlockscreen
+	install = betterlockscreen.install
+	arch = any
+	license = MIT
+	depends = i3lock-color>=2.13.c.3-1
+	depends = imagemagick
+	depends = xorg-xrandr
+	depends = xorg-xdpyinfo
+	depends = bc
+	optdepends = feh: Allows setting wallpaper
+	conflicts = betterlockscreen
+	source = betterlockscreen::git+https://github.com/pavanjadhaw/betterlockscreen.git
+	md5sums = SKIP
+
+pkgname = betterlockscreen-git
