@@ -1,0 +1,25 @@
+# Maintainer: Aakash Sharma <aakashsensharma@gmail.com>
+pkgname=xelph-wallpapers-git
+_pkgname=xelph-wallpapers-git
+_destname1="/usr/share/backgrounds/"
+pkgver=r2.2355e38
+pkgrel=1
+pkgdesc="Wallpapers for Xelph Linux."
+arch=('any')
+url="https://github.com/xelphlinux/xelph-wallpapers-git"
+license=('GPL3')
+makedepends=('git')
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=(${_pkgname}::"git+https://github.com/xelphlinux/${_pkgname}.git")
+sha256sums=('SKIP')
+
+package() {
+	install -dm755 ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
+}
+
+pkgver() {
+  cd "$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
