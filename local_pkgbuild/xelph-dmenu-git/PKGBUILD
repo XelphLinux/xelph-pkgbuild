@@ -1,0 +1,38 @@
+# Maintainer: Aakash Sharma <aakashsensharma@gmail.com>
+pkgname=xelph-dmenu-git
+_pkgname=xelph-dmenu-git
+_destname1="/opt/xelph-dmenu-git/"
+pkgver=r4.bbfff7c
+pkgrel=1
+pkgdesc="Nord themed dmenu for XelphOS"
+arch=('x86_64')
+url="https://github.com/xelphlinux/xelph-dmenu-git"
+license=('MIT')
+makedepends=('git')
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=(${_pkgname}::"git+https://github.com/xelphlinux/${_pkgname}.git")
+sha256sums=('SKIP')
+install='post.install'
+
+build(){
+  cd "$pkgname"${_destname1}
+  make
+}
+
+package() {
+	install -dm755 ${pkgdir}${_destname1}
+	cp -r ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
+	cd "$pkgname"${_destname1}
+	install -Dm755 "./dmenu" "$pkgdir/usr/bin/dmenu"
+	install -Dm755 "./dmenu_path" "$pkgdir/usr/bin/dmenu_path"
+	install -Dm755 "./dmenu_run" "$pkgdir/usr/bin/dmenu_run"
+	install -Dm755 "./stest" "$pkgdir/usr/bin/stest"
+	install -Dm644 "./dmenu.1" "$pkgdir/usr/share/man/man1/dmenu.1"
+	install -Dm644 "./stest.1" "$pkgdir/usr/share/man/man1/stest.1"
+}
+
+pkgver() {
+  cd "$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
