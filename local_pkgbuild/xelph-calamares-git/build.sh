@@ -12,3 +12,4 @@ echo "################### Moved the .zst file to x86_64 folder"
 echo "################################################################"
 sudo rm -rf pkg
 sudo rm -rf src
+find . -type f  | grep -i "calamares-.*$"  | xargs rm -rf
