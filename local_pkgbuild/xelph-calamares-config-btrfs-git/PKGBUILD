@@ -1,7 +1,7 @@
 # Maintainer: Aakash Sharma <aakashsensharma@gmail.com>
 pkgname=xelph-calamares-config-btrfs-git
 _destname1="/etc"
-pkgver=r36.9815be8
+pkgver=r42.118e896
 pkgrel=1
 pkgdesc="calamares for XelphLinux"
 arch=('any')
