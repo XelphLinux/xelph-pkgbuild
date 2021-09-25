@@ -1,7 +1,9 @@
 aura-bin
-yay-bin
 betterlockscreen-git
+btop
 cava
+chaotic-keyring
+chaotic-mirrorlist
 cursor-theme-macos-big-sur
 devour
 gotop-bin
@@ -9,8 +11,7 @@ moc-pulse
 nerd-fonts-jetbrains-mono
 nordic-darker-theme-git
 otf-san-francisco
+picom-jonaburg-git
 tmux-plugin-manager
-btop
 uwufetch-git
-chaotic-keyring
-chaotic-mirrorlist
+yay-bin
