@@ -1,0 +1,36 @@
+# Maintainer: Aakash Sharma <aakashsensharma@gmail.com>
+pkgname=xelph-st-git
+_pkgname=xelph-st-git
+_destname1="/opt/xelph-st-git/"
+pkgver=r2.3bf67e1
+pkgrel=1
+pkgdesc="Nord themed st for XelphOS"
+arch=('x86_64')
+url="https://github.com/xelphlinux/xelph-st-git"
+license=('MIT')
+makedepends=('git')
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=(${_pkgname}::"git+https://github.com/xelphlinux/${_pkgname}.git")
+sha256sums=('SKIP')
+install='post.install'
+
+build(){
+  cd "$pkgname"${_destname1}
+  make
+}
+
+package() {
+	install -dm755 ${pkgdir}${_destname1}
+	cp -r ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
+	cd "$pkgname"${_destname1}
+	install -Dm755 "./st" "$pkgdir/usr/local/bin/st"
+	install -Dm755 "./st-copyout" "$pkgdir/usr/local/bin/st-copyout"
+	install -Dm755 "./st-urlhandler" "$pkgdir/usr/local/bin/st-urlhandler"
+	install -Dm644 "./st.1" "$pkgdir/usr/share/man/man1/st.1"
+}
+
+pkgver() {
+  cd "$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
