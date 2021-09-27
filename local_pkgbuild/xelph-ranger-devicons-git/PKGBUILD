@@ -1,0 +1,26 @@
+# Maintainer: Aakash Sharma <aakashsensharma@gmail.com>
+pkgname=xelph-ranger-devions-git
+_pkgname=ranger_devicons
+_destname1="/etc/skel/.config/ranger/plugins/"
+pkgver=r82.1194161
+pkgrel=1
+pkgdesc="Devicons for ranger."
+arch=('any')
+url="https://github.com/alexanderjeurissen/ranger_devicons"
+license=('GPL3')
+makedepends=('git')
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=(${_pkgname}::"git+https://github.com/alexanderjeurissen/${_pkgname}.git")
+sha256sums=('SKIP')
+install='post.install'
+
+package() {
+	install -dm755 ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}* ${pkgdir}${_destname1}
+}
+
+pkgver() {
+  cd "$_pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
