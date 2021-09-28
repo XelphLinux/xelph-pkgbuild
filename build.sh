@@ -7,3 +7,5 @@ for d in ./*/ ; do (cd "$d" && ./build.sh); done
 cd ../../local_pkgbuild
 for d in ./*/ ; do (cd "$d" && ./build.sh); done
 yes | yay -c
+cd ../../xelph-repo/
+./repo.sh
