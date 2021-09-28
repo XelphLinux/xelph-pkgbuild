@@ -1,5 +1,5 @@
 # Maintainer: Aakash Sharma <aakashsensharma@gmail.com>
-pkgname=xelph-ranger-devions-git
+pkgname=xelph-ranger-devicons-git
 _pkgname=ranger_devicons
 _destname1="/etc/skel/.config/ranger/plugins/"
 pkgver=r82.1194161
