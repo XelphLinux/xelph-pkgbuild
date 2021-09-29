@@ -7,7 +7,6 @@ ls ../../../xelph-repo/x86_64/ | grep $filename | xargs -I {} rm -rf ../../../xe
 updpkgsums
 makepkg -sc --noconfirm
 yes| yay -c
-mkdir -p ../../x86_64
 mv *.pkg.tar.zst ../../../xelph-repo/x86_64/
 echo "################################################################"
 echo "################### Moved the .zst file to x86_64 folder"
