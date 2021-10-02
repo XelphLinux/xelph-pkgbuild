@@ -1,0 +1,36 @@
+# Maintainer: Aakash Sharma <aakashsensharma@gmail.com>
+pkgname=xelph-dwm-git
+_pkgname=xelph-dwm-git
+_destname1="/opt/xelph-dwm-git/"
+pkgver=r124.1aa052d
+pkgrel=1
+pkgdesc="Nord themed dwm for XelphOS ( fork of chadwm by sideduck )"
+arch=('x86_64')
+url="https://github.com/xelphlinux/xelph-dwm-git"
+license=('MIT')
+makedepends=('git')
+depends=(libx11 libxinerama nerd-fonts-jetbrains-mono acpi pacman-contrib)
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=(${_pkgname}::"git+https://github.com/xelphlinux/${_pkgname}.git")
+sha256sums=('SKIP')
+install='post.install'
+
+build(){
+  cd "$pkgname"${_destname1}"src/"
+  make
+}
+
+package() {
+	install -dm755 ${pkgdir}${_destname1}
+	cp -r ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
+	cd "$pkgname"${_destname1}"src/"
+	install -Dm755 "./dwm" "$pkgdir/usr/local/bin/dwm"
+	install -Dm644 "./dwm.1" "$pkgdir/usr/local/share/man/man1/dwm.1"
+	install -Dm644 "./dwm.desktop" "$pkgdir/usr/share/xsessions/dwm.desktop"
+}
+
+pkgver() {
+  cd "$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}

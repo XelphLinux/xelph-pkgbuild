@@ -2,7 +2,7 @@
 pkgname=xelph-st-git
 _pkgname=xelph-st-git
 _destname1="/opt/xelph-st-git/"
-pkgver=r2.3bf67e1
+pkgver=r3.b84d574
 pkgrel=1
 pkgdesc="Nord themed st for XelphOS"
 arch=('x86_64')
