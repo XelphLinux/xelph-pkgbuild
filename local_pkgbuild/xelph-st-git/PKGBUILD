@@ -2,13 +2,14 @@
 pkgname=xelph-st-git
 _pkgname=xelph-st-git
 _destname1="/opt/xelph-st-git/"
-pkgver=r3.b84d574
+pkgver=r4.ca438c4
 pkgrel=1
 pkgdesc="Nord themed st for XelphOS"
 arch=('x86_64')
 url="https://github.com/xelphlinux/xelph-st-git"
 license=('MIT')
 makedepends=('git')
+depends=(libxft-bgra)
 provides=("${pkgname}")
 options=(!strip !emptydirs)
 source=(${_pkgname}::"git+https://github.com/xelphlinux/${_pkgname}.git")
