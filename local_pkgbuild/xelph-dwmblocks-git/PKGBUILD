@@ -8,6 +8,7 @@ pkgdesc="Nord themed dwmblocks for XelphOS"
 arch=('x86_64')
 url="https://github.com/xelphlinux/xelph-dwmblocks-git"
 license=('MIT')
+depends=(acpi pacman-contrib)
 makedepends=('git')
 provides=("${pkgname}")
 options=(!strip !emptydirs)
