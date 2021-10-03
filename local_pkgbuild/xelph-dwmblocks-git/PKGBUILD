@@ -25,7 +25,7 @@ package() {
 	install -dm755 ${pkgdir}${_destname1}
 	cp -r ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
 	cd "$pkgname"${_destname1}
-	install -Dm755 "./dwmblocks" "$pkgdir/usr/bin/dwmblocks"
+	install -Dm755 "./dwmblocks" "$pkgdir/usr/local/bin/dwmblocks"
 }
 
 pkgver() {
