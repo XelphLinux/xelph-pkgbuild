@@ -1,17 +1,16 @@
 # Maintainer: Aakash Sharma <aakashsensharma@gmail.com>
-pkgname=xelph-config-bspwm-git
-_pkgname=xelph-config-bspwm-git
+pkgname=xelph-base-config-git
+_pkgname=xelph-base-config-git
 _destname1="/etc/skel/"
-pkgver=r28.6cb1ebd
+pkgver=r2.2e2add0
 pkgrel=1
-pkgdesc="BSPWM config files for Xelph Linux."
+pkgdesc="Base config files for Xelph Linux."
 arch=('x86_64')
-url="https://github.com/xelphlinux/xelph-config-bspwm-git"
+url="https://github.com/xelphlinux/xelph-base-config-git"
 license=('MIT')
 makedepends=('git')
 provides=("${pkgname}")
 options=(!strip !emptydirs)
-depends=(bspwm sxhkd polybar)
 source=(${_pkgname}::"git+https://github.com/xelphlinux/${_pkgname}.git")
 sha256sums=('SKIP')
 install='post.install'
