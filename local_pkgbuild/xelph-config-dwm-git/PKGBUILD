@@ -1,16 +1,17 @@
 # Maintainer: Aakash Sharma <aakashsensharma@gmail.com>
-pkgname=xelph-base-config-git
-_pkgname=xelph-base-config-git
+pkgname=xelph-config-dwm-git
+_pkgname=xelph-config-dwm-git
 _destname1="/etc/skel/"
-pkgver=r5.3c0b6ec
+pkgver=r2.5c3ea6c
 pkgrel=1
-pkgdesc="Base config files for Xelph Linux."
+pkgdesc="DWM specific config files for Xelph Linux."
 arch=('x86_64')
-url="https://github.com/xelphlinux/xelph-base-config-git"
+url="https://github.com/xelphlinux/xelph-config-dwm-git"
 license=('MIT')
 makedepends=('git')
 provides=("${pkgname}")
 options=(!strip !emptydirs)
+depends=(xelph-dwm-git)
 source=(${_pkgname}::"git+https://github.com/xelphlinux/${_pkgname}.git")
 sha256sums=('SKIP')
 install='post.install'

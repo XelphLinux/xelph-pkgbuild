@@ -2,7 +2,7 @@
 pkgname=xelph-config-bspwm-git
 _pkgname=xelph-config-bspwm-git
 _destname1="/etc/skel/"
-pkgver=r28.6cb1ebd
+pkgver=r29.e0d2a9e
 pkgrel=1
 pkgdesc="BSPWM config files for Xelph Linux."
 arch=('x86_64')
