@@ -2,7 +2,7 @@
 pkgname=xelph-dwm-git
 _pkgname=xelph-dwm-git
 _destname1="/opt/xelph-dwm-git/"
-pkgver=r125.8eaf262
+pkgver=r126.bc5d538
 pkgrel=1
 pkgdesc="Nord themed dwm for XelphOS ( fork of chadwm by sideduck )"
 arch=('x86_64')
