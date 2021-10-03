@@ -1,0 +1,33 @@
+# Maintainer: Aakash Sharma <aakashsensharma@gmail.com>
+pkgname=xelph-dwmblocks-git
+_pkgname=xelph-dwmblocks-git
+_destname1="/opt/xelph-dwmblocks-git/"
+pkgver=r2.59b3b81
+pkgrel=1
+pkgdesc="Nord themed dwmblocks for XelphOS"
+arch=('x86_64')
+url="https://github.com/xelphlinux/xelph-dwmblocks-git"
+license=('MIT')
+makedepends=('git')
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=(${_pkgname}::"git+https://github.com/xelphlinux/${_pkgname}.git")
+sha256sums=('SKIP')
+install='post.install'
+
+build(){
+  cd "$pkgname"${_destname1}
+  make
+}
+
+package() {
+	install -dm755 ${pkgdir}${_destname1}
+	cp -r ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
+	cd "$pkgname"${_destname1}
+	install -Dm755 "./dwmblocks" "$pkgdir/usr/bin/dwmblocks"
+}
+
+pkgver() {
+  cd "$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
