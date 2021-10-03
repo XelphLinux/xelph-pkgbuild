@@ -2,7 +2,7 @@
 pkgname=xelph-base-config-git
 _pkgname=xelph-base-config-git
 _destname1="/etc/skel/"
-pkgver=r5.3c0b6ec
+pkgver=r6.543b41d
 pkgrel=1
 pkgdesc="Base config files for Xelph Linux."
 arch=('x86_64')
