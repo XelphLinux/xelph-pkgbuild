@@ -9,7 +9,7 @@ arch=('x86_64')
 url="https://github.com/xelphlinux/xelph-dwm-git"
 license=('MIT')
 makedepends=('git')
-depends=(libx11 libxinerama nerd-fonts-jetbrains-mono xelph-dwmblocks-git xelph-dmenu-git)
+depends=(libx11 libxinerama nerd-fonts-jetbrains-mono xelph-dwmblocks-git xelph-dmenu-git xelph-st-git)
 provides=("${pkgname}")
 options=(!strip !emptydirs)
 source=(${_pkgname}::"git+https://github.com/xelphlinux/${_pkgname}.git")
@@ -26,7 +26,7 @@ package() {
 	cp -r ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
 	cd "$pkgname"${_destname1}"src/"
 	install -Dm755 "./dwm" "$pkgdir/usr/local/bin/dwm"
-	install -Dm644 "./dwm.1" "$pkgdir/usr/local/share/man/man1/dwm.1"
+	#install -Dm644 "./dwm.1" "$pkgdir/usr/local/share/man/man1/dwm.1"
 	install -Dm644 "./dwm.desktop" "$pkgdir/usr/share/xsessions/dwm.desktop"
 }
 

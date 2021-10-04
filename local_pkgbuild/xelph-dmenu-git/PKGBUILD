@@ -28,8 +28,8 @@ package() {
 	install -Dm755 "./dmenu_path" "$pkgdir/usr/bin/dmenu_path"
 	install -Dm755 "./dmenu_run" "$pkgdir/usr/bin/dmenu_run"
 	install -Dm755 "./stest" "$pkgdir/usr/bin/stest"
-	install -Dm644 "./dmenu.1" "$pkgdir/usr/share/man/man1/dmenu.1"
-	install -Dm644 "./stest.1" "$pkgdir/usr/share/man/man1/stest.1"
+	#install -Dm644 "./dmenu.1" "$pkgdir/usr/share/man/man1/dmenu.1"
+	#install -Dm644 "./stest.1" "$pkgdir/usr/share/man/man1/stest.1"
 }
 
 pkgver() {

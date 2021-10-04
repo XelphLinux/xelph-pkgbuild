@@ -28,7 +28,7 @@ package() {
 	install -Dm755 "./st" "$pkgdir/usr/local/bin/st"
 	install -Dm755 "./st-copyout" "$pkgdir/usr/local/bin/st-copyout"
 	install -Dm755 "./st-urlhandler" "$pkgdir/usr/local/bin/st-urlhandler"
-	install -Dm644 "./st.1" "$pkgdir/usr/share/man/man1/st.1"
+	#install -Dm644 "./st.1" "$pkgdir/usr/share/man/man1/st.1"
 }
 
 pkgver() {
