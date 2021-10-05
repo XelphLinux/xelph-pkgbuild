@@ -2,7 +2,7 @@
 pkgname=xelph-dwmblocks-git
 _pkgname=xelph-dwmblocks-git
 _destname1="/opt/xelph-dwmblocks-git/"
-pkgver=r2.59b3b81
+pkgver=r3.fa0583f
 pkgrel=1
 pkgdesc="Nord themed dwmblocks for XelphOS"
 arch=('x86_64')
