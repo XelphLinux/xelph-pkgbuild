@@ -1,0 +1,27 @@
+# Maintainer: Aakash Sharma <aakashsensharma@gmail.com>
+pkgname=xelph-lxdm-config-git
+_pkgname=xelph-lxdm-config-git
+_destname1="/usr/share/lxdm/themes/"
+pkgver=r2.77da288
+pkgrel=1
+pkgdesc="GRUB theme for XelphOS."
+arch=('x86_64')
+url="https://github.com/xelphlinux/xelph-lxdm-config-git"
+license=('MIT')
+makedepends=('git')
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+depends=()
+source=(${_pkgname}::"git+https://github.com/xelphlinux/${_pkgname}.git")
+sha256sums=('SKIP')
+install='post.install'
+
+package() {
+	install -dm755 ${pkgdir}${_destname1}
+	cp -lr ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
+}
+
+pkgver() {
+  cd "$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
