@@ -2,7 +2,7 @@
 pkgname=xelph-mocicon-git
 _pkgname=xelph-mocicon-git
 _destname1="/opt/xelph-mocicon-git/"
-pkgver=r2.de53050
+pkgver=r3.8d78af1
 pkgrel=1
 pkgdesc="Systray package for moc-pulse music player for XelphOS"
 arch=('x86_64')
