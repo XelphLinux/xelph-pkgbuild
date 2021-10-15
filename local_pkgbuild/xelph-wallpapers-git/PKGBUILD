@@ -2,7 +2,7 @@
 pkgname=xelph-wallpapers-git
 _pkgname=xelph-wallpapers-git
 _destname1="/usr/share/backgrounds/"
-pkgver=r14.cfceb94
+pkgver=r15.006574b
 pkgrel=1
 pkgdesc="Wallpapers for Xelph Linux."
 arch=('any')
