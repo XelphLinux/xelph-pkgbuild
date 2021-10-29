@@ -2,7 +2,7 @@
 pkgname=xelph-config-dwm-git
 _pkgname=xelph-config-dwm-git
 _destname1="/etc/skel/"
-pkgver=r3.19fac93
+pkgver=r4.99d1293
 pkgrel=1
 pkgdesc="DWM specific config files for Xelph Linux."
 arch=('x86_64')
